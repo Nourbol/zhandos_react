@@ -7,6 +7,7 @@ import ShelterList from 'pages/ShelterList';
 import AdminLoginForm from 'pages/AdminLoginForm';
 import Post from 'pages/Post';
 import Welcome from 'pages/Welcome';
+import PostList from 'pages/PostList';
 
 function App() {
 
@@ -34,7 +35,7 @@ function App() {
 
               <Route path="/shelters" element={<ShelterList />} />
 
-              <Route path="/posts" element={<ShelterList />} />
+              <Route path="/posts" element={<PostList />} />
               <Route path="/posts/:post" element={<Post formatDate={formatDate} />} />
 
               <Route path="/admin" element={<AdminLoginForm />} />
