@@ -5,7 +5,7 @@ import Header from 'components/Layout/Header';
 import React from 'react';
 import ShelterList from 'pages/ShelterList';
 import AdminLoginForm from 'pages/AdminLoginForm';
-import Post from 'components/Post/Post';
+import Post from 'pages/Post';
 import Welcome from 'pages/Welcome';
 
 function App() {

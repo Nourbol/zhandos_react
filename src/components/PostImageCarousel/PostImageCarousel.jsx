@@ -8,7 +8,7 @@ function PostImageCarousel(props) {
     useEffect(() => {
         axios({
             method: 'get',
-            url: 'http://web.test/api/posts/' + props.id + '/images'
+            url: 'http://web.test/api/posts/' + props.postId + '/images'
         })
         .then(response => {
             const array = [];
@@ -18,7 +18,7 @@ function PostImageCarousel(props) {
             ));
             setSlides(array);
         })
-    })
+    }, [])
 
     return ( 
         <Carousel slides={slides}/>

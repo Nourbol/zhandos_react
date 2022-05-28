@@ -1,4 +1,5 @@
 import PostImageCarousel from 'components/PostImageCarousel/PostImageCarousel';
+import Comments from 'components/Comments/Comments';
 import React, { Component } from 'react';
 import { sendGetRequest } from 'services/htttpRequestSendingService';
 import { renderWithRequest } from 'services/renderService';
@@ -55,21 +56,22 @@ class Post extends Component {
                             <div className="text-muted fst-italic mb-2">{post.created_at}</div>
                         </div>
                         <div className="container w-50">
-                            <PostImageCarousel id={id} />
+                            <PostImageCarousel postId={id} />
                         </div>
                         <section className="mb-5">
                             <article className='card mb-4'>
-                                <div className="card-header">
+                                <div className="card-header bg-info text-light">
                                     Contacts
                                 </div>
                                 <div className="card-body">
-                                    Name: {post.author_name} <br />
-                                    Phone number: {post.phone}
+                                    <p>Name: <span className='text-info'>{post.author_name}</span></p>
+                                    <p>Phone number: <span className='text-info'>{post.phone}</span></p>
                                 </div>
                             </article>
                             <p className="fs-5 mb-4">{post.text}</p>
                         </section>
                     </section>
+                    <Comments postId={id}></Comments>
                 </div>
             </>
         );

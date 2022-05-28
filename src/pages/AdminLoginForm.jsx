@@ -26,7 +26,7 @@ class AdminLoginForm extends Component {
         })
         .catch((error) => {
             this.setState({error});
-        })
+        });
     }
 
     handleChange = (event) => {
