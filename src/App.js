@@ -1,12 +1,12 @@
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Footer from './components/Layout/Footer';
-import Header from './components/Layout/Header';
+import Footer from 'components/Layout/Footer';
+import Header from 'components/Layout/Header';
 import React from 'react';
-import ShelterList from './pages/ShelterList';
-import AdminLoginForm from './components/LoginForm/AdminLoginForm';
-import Post from './components/Post/Post';
-import Welcome from './pages/Welcome';
+import ShelterList from 'pages/ShelterList';
+import AdminLoginForm from 'pages/AdminLoginForm';
+import Post from 'components/Post/Post';
+import Welcome from 'pages/Welcome';
 
 function App() {
 
