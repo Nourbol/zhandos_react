@@ -1,9 +1,8 @@
 .str-pos {
-  position: relative;
-  top: 50%;
-  left: 50%;
-  margin-top: 25%;
-  margin-bottom: 25%;
+  display: flex;
+  justify-content: center;
+  margin-top: 200px;
+  margin-bottom: 200px;
 }
 
 .loader {

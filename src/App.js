@@ -35,8 +35,9 @@ function App() {
 
               <Route path="/shelters" element={<ShelterList />} />
 
-              <Route path="/posts" element={<PostList />} />
-              <Route path="/posts/:post" element={<Post formatDate={formatDate} />} />
+              <Route exact path="/posts/lost" element={<PostList postType={0}/>} />
+              <Route exact path="/posts/found" element={<PostList postType={1}/>} />
+              <Route path="/posts/:post" element={<Post formatDate={formatDate} getPostType={getPostType}/>} />
 
               <Route path="/admin" element={<AdminLoginForm />} />
               {/* <Route path="/admin/unconfirmed_posts" element={<UnconfirmedPostsList postType={getPostType} />} /> */}

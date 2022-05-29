@@ -9,8 +9,8 @@ function Header() {
             <nav>
                 <ul className="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
                     <li><a href="/" className="nav-link px-2 link-info">Home</a></li>
-                    <li><a href="/lost" className="nav-link px-2 link-info">Lost</a></li>
-                    <li><a href="/found" className="nav-link px-2 link-info">Found</a></li>
+                    <li><a href="/posts/lost" className="nav-link px-2 link-info">Lost</a></li>
+                    <li><a href="/posts/found" className="nav-link px-2 link-info">Found</a></li>
                     <li><a href="/shelters" className="nav-link px-2 link-info">Shelters</a></li>
                 </ul>
             </nav>

@@ -4,14 +4,27 @@ import PostPreview from 'components/PostPreview/PostPreview';
 import { renderWithRequest } from 'services/renderService';
 
 class PostList extends Component {
-    state = { 
-        posts: [],
-        isLoaded: false,
-        error: null
+    constructor(props) {
+        super(props);
+        this.state = { 
+            posts: [],
+            isLoaded: false,
+            error: null
+        }
     }
     
     componentDidMount() {
-        const url = 'http://web.test/api/posts/withImages';
+        let url = 'http://web.test/api/posts/withThumbnails';
+        switch(this.props.postType) {
+            case 0: {
+                url = 'http://web.test/api/posts/lost';
+                break;
+            };
+            case 1: {
+                url = 'http://web.test/api/posts/found';
+                break;
+            };
+        }
         sendGetRequest(url, 
             response => {this.setState({
                 isLoaded: true,
@@ -25,12 +38,6 @@ class PostList extends Component {
         );
     }
 
-    getThumbnail(post) {
-        if (post.images.length !== 0) {
-            return post.images[0].image_url;
-        }
-    }
-
     getPostList() {
         const posts = this.state.posts;
         return (
@@ -38,7 +45,7 @@ class PostList extends Component {
                 {
                     posts.map(post => (
                         <div key={post.id}>
-                            <PostPreview post={post} imageUrl={this.getThumbnail(post)}/>
+                            <PostPreview post={post}/>
                         </div>
                     )) 
                 }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import ShelterPreview from 'components/ShelterPreview/ShelterPreview';
+import { renderWithRequest } from 'services/renderService';
+import { sendGetRequest } from 'services/htttpRequestSendingService';
 
 class ShelterList extends Component {
     constructor(props) {
@@ -13,17 +14,15 @@ class ShelterList extends Component {
     }
 
     componentDidMount() {
-      axios({
-        method: 'get',
-        url: 'http://web.test/api/shelter_infos'
-      })
-        .then(response => {
+      const url = 'http://web.test/api/shelter_infos';
+      sendGetRequest(url, 
+        response => {
           this.setState({
             isLoaded: true,
             shelters: response.data.data
           });
-        })
-        .catch((error) => {
+        },
+        error => {
           this.setState({
             isLoaded: true,
             error
@@ -33,13 +32,7 @@ class ShelterList extends Component {
 
     render() {
         const { error, isLoaded } = this.state;
-        if (error) {
-          return <div>Error: {error.message}</div>;
-        } else if (!isLoaded) {
-          return <div>Loading...</div>;
-        } else {
-          return this.getShelterList();
-        }
+        return renderWithRequest(error, isLoaded, this.getShelterList());
     }
 
     getShelterList() {

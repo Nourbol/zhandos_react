@@ -11,7 +11,7 @@ function PostPreview(props) {
                         <div className="col-md-6 mb-4">
                             <div className="bg-image hover-overlay ripple d-flex justify-content-center" data-mdb-ripple-color="light">
                                 <div>
-                                    <img src={props.imageUrl || 'https://mgppu.ru/resources/images/300x300.png'} style={{borderRadius: ".5rem"}} className="img-fluid" />
+                                    <img src={post.image_url || 'https://mgppu.ru/resources/images/300x300.png'} style={{borderRadius: ".5rem"}} className="img-fluid" />
                                     <a href="#!">
                                         <div className="mask" style={{backgroundColor: "rgba(251, 251, 251, 0.15)"}}></div>
                                     </a>
@@ -23,7 +23,7 @@ function PostPreview(props) {
                             <span className="badge bg-danger px-2 py-1 shadow-1-strong mb-3">{() => this.props.postType(post.status)}</span>
                             <h4><strong>{post.title}</strong></h4>
                             <p className="text-muted">{post.text}</p>
-                            <a src={'/posts/' + post.id} className="btn btn-primary w-20 me-2">Read more</a>
+                            <a href={'/posts/' + post.id} className="btn btn-primary w-20 me-2">Read more</a>
                         </div>
                     </div>
                 </section>
