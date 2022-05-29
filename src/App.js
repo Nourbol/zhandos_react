@@ -8,6 +8,7 @@ import AdminLoginForm from 'pages/AdminLoginForm';
 import Post from 'pages/Post';
 import Welcome from 'pages/Welcome';
 import PostList from 'pages/PostList';
+import Shelter from 'pages/Shelter';
 
 function App() {
 
@@ -27,24 +28,23 @@ function App() {
   return (
     <React.Fragment>
       <Header/>
-      <main>
-        <div className='container'>
-          <Router>
-            <Routes>
-              <Route path="/" element={<Welcome />} />
+      <main className='container'>
+        <Router>
+          <Routes>
+            <Route path="/" element={<Welcome />} />
 
-              <Route path="/shelters" element={<ShelterList />} />
+            <Route path="/shelters" element={<ShelterList />} />
+            <Route path="/shelters/:shelter" element={<Shelter />} />
 
-              <Route exact path="/posts/lost" element={<PostList postType={0}/>} />
-              <Route exact path="/posts/found" element={<PostList postType={1}/>} />
-              <Route path="/posts/:post" element={<Post formatDate={formatDate} getPostType={getPostType}/>} />
+            <Route exact path="/posts/lost" element={<PostList postType={0}/>} />
+            <Route exact path="/posts/found" element={<PostList postType={1}/>} />
+            <Route path="/posts/:post" element={<Post formatDate={formatDate} getPostType={getPostType}/>} />
 
-              <Route path="/admin" element={<AdminLoginForm />} />
+            <Route path="/admin" element={<AdminLoginForm />} />
               {/* <Route path="/admin/unconfirmed_posts" element={<UnconfirmedPostsList postType={getPostType} />} /> */}
 
-            </Routes>
-          </Router>
-        </div>
+          </Routes>
+        </Router>
       </main>
       <Footer/>
     </React.Fragment>
